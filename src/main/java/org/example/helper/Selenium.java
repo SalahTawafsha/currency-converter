@@ -17,33 +17,33 @@ public class Selenium {
     private void open() {
         System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
         driver = new ChromeDriver();
-        driver.get("https://salah_projectqa.mohammadf.site/index.php");
+        driver.get("http://192.168.1.8/currency_converter/");
         driver.manage().window().maximize();
 
     }
 
     public void enterAmount(String amount) {
-        WebElement amountWebElement = driver.findElement(By.name("amo"));
+        WebElement amountWebElement = driver.findElement(By.id("amoTXT"));
         amountWebElement.clear();
         amountWebElement.sendKeys(amount);
     }
     public String submit() throws InterruptedException {
-        WebElement submit = driver.findElement(By.name("submit"));
+        WebElement submit = driver.findElement(By.id("submitInput"));
         submit.click();
         Thread.sleep(1000);
-        return driver.findElement(By.name("result ")).getAttribute("value");
+        return driver.findElement(By.id("resultInput")).getAttribute("value");
     }
 
     public String getRate() {
-        return driver.findElement(By.name("tatetxt")).getAttribute("value");
+        return driver.findElement(By.id("rateInput")).getAttribute("value");
     }
 
     public void selectFrom(String value) {
-        Select select = new Select(driver.findElement(By.name("from")));
+        Select select = new Select(driver.findElement(By.id("selectFrom")));
         select.selectByValue(value);
     }
     public void selectTo(String value) {
-        Select select = new Select(driver.findElement(By.name("to")));
+        Select select = new Select(driver.findElement(By.id("selectTo")));
         select.selectByValue(value);
     }
 

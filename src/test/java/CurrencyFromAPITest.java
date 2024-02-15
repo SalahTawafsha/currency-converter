@@ -23,7 +23,7 @@ class CurrencyFromAPITest {
     void zeroInput() throws InterruptedException {
         selenium.enterAmount("0");
         String result = selenium.submit();
-        assertEquals("You must fill Amount of currancy !", result);
+        assertEquals("Amount of currency can't be zero !!", result);
     }
 
     @Test
@@ -31,7 +31,7 @@ class CurrencyFromAPITest {
     void negativeInput() throws InterruptedException {
         selenium.enterAmount("-10");
         String result = selenium.submit();
-        assertEquals("Amount of currancy can't be negative !!", result);
+        assertEquals("Amount of currency can't be negative !!", result);
     }
 
 
@@ -74,11 +74,11 @@ class CurrencyFromAPITest {
 
 
     @Test
-    @DisplayName("positive input")
+    @DisplayName("empty input")
     void emptyInput() throws InterruptedException {
         selenium.enterAmount("");
         String result = selenium.submit();
-        assertEquals("You must fill Amount of currancy !", result);
+        assertEquals("You must fill Amount of currency !!", result);
     }
 
 }
